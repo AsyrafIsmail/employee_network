@@ -7,9 +7,18 @@
 </head>
 <body>
     <h2>Currently Available Employees</h2>
-
+    <p>{{ $greeting }}</p>
     <ul>
-        <li>Employees Here</li>
+        <li>
+            <a href="/employees/{{ $employees[0]["id"] }}">
+                {{ $employees[0]["name"] }}
+            </a>
+        </li>
+        <li>
+            <a href="/employees/{{ $employees[1]["id"] }}">
+                {{ $employees[1]["name"] }}
+            </a>
+        </li>
     </ul>
 </body>
 </html>
