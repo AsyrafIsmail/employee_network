@@ -4,8 +4,9 @@
     <ul>
         @foreach ($employees as $employee)
             <li>
-                <p>{{ $employee["name"] }}</p>
-                <a href="/employees/{{  $employee["id"] }}">View Details</a>
+                <x-card href="/employees/{{ $employee['id'] }}" :highlight="$employee['skill'] > 70">
+                    <h3>{{ $employee['name'] }}</h3>
+                </x-card>
             </li>
         @endforeach
     </ul>
