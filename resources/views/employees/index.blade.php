@@ -7,18 +7,16 @@
 </head>
 <body>
     <h2>Currently Available Employees</h2>
-    <p>{{ $greeting }}</p>
+
+
+
     <ul>
-        <li>
-            <a href="/employees/{{ $employees[0]["id"] }}">
-                {{ $employees[0]["name"] }}
-            </a>
-        </li>
-        <li>
-            <a href="/employees/{{ $employees[1]["id"] }}">
-                {{ $employees[1]["name"] }}
-            </a>
-        </li>
+        @foreach ($employees as $employee)
+            <li>
+                <p>{{ $employee["name"] }}</p>
+                <a href="/employees/{{  $employee["id"] }}">View Details</a>
+            </li>
+        @endforeach
     </ul>
 </body>
 </html>
