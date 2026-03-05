@@ -14,6 +14,10 @@ Route::get('/employees', function() {
     return view('employees.index', ["greeting" => "Hello", "employees" => $employees]);
 });
 
+Route::get('/employees/create', function () {
+    return view('employees.create');
+});
+
 Route::get('/employees/{id}', function ($id) {
     $employees = [
         ["name" => "Afif Muqri", "skill" => 75, "id" => 1],
