@@ -10,4 +10,5 @@
             </li>
         @endforeach
     </ul>
+    {{ $employees->links() }}
 </x-layout>

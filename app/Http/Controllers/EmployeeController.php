@@ -8,14 +8,13 @@ use App\Models\Employee;
 class EmployeeController extends Controller
 {
     public function index() {
-        $employees = Employee::orderBy('created_at', 'desc')->get();
+        $employees = Employee::orderBy('created_at', 'desc')->paginate(10);
 
         return view('employees.index', ['employees' => $employees]);
     }
 
     public function show($id) {
         $employee = Employee::findorFail($id);
-        // dd($employee);
         return view('employees.show', ["employee" => $employee]);
     }
 
