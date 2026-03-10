@@ -7,8 +7,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/employees', [EmployeeController::class, 'index']);
+Route::get('/employees', [EmployeeController::class, 'index'])->name('employees.index');
 
-Route::get('/employees/create', [EmployeeController::class, 'create']);
+Route::get('/employees/create', [EmployeeController::class, 'create'])->name('employees.create');
 
-Route::get('/employees/{id}', [EmployeeController::class, 'show']);
+Route::get('/employees/{id}', [EmployeeController::class, 'show'])->name('employees.show');

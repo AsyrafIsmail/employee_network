@@ -10,8 +10,8 @@
     <header>
         <nav>
             <h1>Employee Network</h1>
-            <a href="/employees">All Employees</a>
-            <a href="/employees/create">Create New Employee</a>
+            <a href="{{ route('employees.index') }}">All Employees</a>
+            <a href="{{ route('employees.create') }}">Create New Employee</a>
         </nav>
     </header>
 
