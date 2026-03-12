@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Branch;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Employee>
@@ -19,7 +20,8 @@ class EmployeeFactory extends Factory
         return [
             'name' => fake()->name(),
             'bio' => fake()->realText(500),
-            'skill' => fake()->numberBetween(0, 100)
+            'skill' => fake()->numberBetween(0, 100),
+            'branch_id' => Branch::inRandomOrder()->first()->id,
         ];
     }
 }
