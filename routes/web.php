@@ -14,3 +14,5 @@ Route::get('/employees/create', [EmployeeController::class, 'create'])->name('em
 Route::get('/employees/{id}', [EmployeeController::class, 'show'])->name('employees.show');
 
 Route::post('/employees', [EmployeeController::class, 'store'])->name('employees.store');
+
+Route::delete('/employees/{id}', [EmployeeController::class, 'destroy'])->name('employee.destroy');

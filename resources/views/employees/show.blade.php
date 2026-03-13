@@ -15,4 +15,11 @@
         <p><strong>About the Branch:</strong></p>
         <p>{{ $employee->branch->description }}</p>
     </div>
+
+    <form action="{{ route('employee.destroy', $employee->id) }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn my-4">Delete Employee</button>
+    </form>
+
 </x-layout>
