@@ -34,13 +34,13 @@ class EmployeeController extends Controller
 
         Employee::create($validated);
 
-        return redirect()->route('employees.index');
+        return redirect()->route('employees.index')->with('success', 'Employee Created!');
     }
 
     public function destroy($id) {
         $employee = Employee::findOrFail($id);
         $employee->delete();
 
-        return redirect()->route('employees.index');
+        return redirect()->route('employees.index')->with('success', 'Employee Deleted!');
     }
 }
