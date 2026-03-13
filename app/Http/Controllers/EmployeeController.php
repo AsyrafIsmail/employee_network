@@ -14,8 +14,8 @@ class EmployeeController extends Controller
         return view('employees.index', ['employees' => $employees]);
     }
 
-    public function show($id) {
-        $employee = Employee::with('branch')->findorFail($id);
+    public function show(Employee $employee) {
+        $employee->load('branch');
         return view('employees.show', ["employee" => $employee]);
     }
 
@@ -37,8 +37,7 @@ class EmployeeController extends Controller
         return redirect()->route('employees.index')->with('success', 'Employee Created!');
     }
 
-    public function destroy($id) {
-        $employee = Employee::findOrFail($id);
+    public function destroy(Employee $employee) {
         $employee->delete();
 
         return redirect()->route('employees.index')->with('success', 'Employee Deleted!');
