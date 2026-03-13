@@ -19,6 +19,7 @@
             type="number"
             id="skill"
             name="skill"
+            value="{{ old('skill') }}"
             required
         >
 
@@ -29,14 +30,14 @@
             id="bio"
             name="bio"
             required
-        ></textarea>
+        >{{ old('bio') }}</textarea>
 
         <!-- select a branch -->
         <label for="branch_id">Branch:</label>
         <select id="branch_id" name="branch_id" required>
             <option value="" disabled selected>Select a branch</option>
             @foreach($branches as $branch)
-                <option value="{{ $branch->id }}">
+                <option value="{{ $branch->id }}" {{ $branch->id == old('branch_id') ? 'selected' : '' }}>
                     {{ $branch->name }}
                 </option>
             @endforeach
@@ -46,6 +47,12 @@
         <button type="submit" class="btn mt-4">Create Employee</button>
 
         <!-- validation errors -->
-
+        @if ($errors->any())
+            <ul class="px-4 py-4 bg-red-100">
+                @foreach ($errors->all() as $error)
+                    <li class="my-2 text-red-500">{{ $error }}</li>
+                @endforeach
+            </ul>
+        @endif
     </form>
 </x-layout>
