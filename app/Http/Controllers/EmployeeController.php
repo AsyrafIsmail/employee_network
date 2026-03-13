@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Employee;
+use App\Models\Branch;
 
 class EmployeeController extends Controller
 {
@@ -19,7 +20,8 @@ class EmployeeController extends Controller
     }
 
     public function create() {
-        return view('employees.create');
+        $branches = Branch::all();
+        return view('employees.create', ["branches" => $branches]);
     }
 
     public function store() {
