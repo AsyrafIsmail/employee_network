@@ -24,7 +24,16 @@ class EmployeeController extends Controller
         return view('employees.create', ["branches" => $branches]);
     }
 
-    public function store() {
+    public function store(Request $request) {
+        $validated = $request->validate([
+            'name' => 'required | string | max:255',
+            'skill' => 'required | integer | min:0 | max:100',
+            'bio' => 'required | string | min:20 | max:255',
+            'branch_id' => 'required | exists:branches,id',
+        ]);
 
+        Employee::create($validated);
+
+        return redirect()->route('employees.index');
     }
 }

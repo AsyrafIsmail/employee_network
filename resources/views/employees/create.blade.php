@@ -1,5 +1,5 @@
 <x-layout>
-    <form action="" method="">
+    <form action="{{ route('employees.store') }}" method="POST">
         @csrf
         <h2>Create a New Employee</h2>
 
